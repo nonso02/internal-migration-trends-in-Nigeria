@@ -1272,12 +1272,3 @@ plot(p)
 jpeg("graphs/emigration_borno_men.jpeg", units = "in", width = w, height = h, res = res)
 plot(p)
 dev.off()
-
-
-#children and labour
-migsw <- wm[which(wm$WB15 != "ALWAYS / SINCE BIRTH"), ]
-migsw$WB17 <- as.character(migsw$WB17)
-migsw$WB17[migsw$WB17 == "AKWA-IBOM"] <- "AKWA IBOM" #fix
-
-aws <- aggregate(migsw$WB4, by = list(migsw$HH7), FUN = "length")
-migswc <- migsw[which(migsw$WB4 < 19), ]
